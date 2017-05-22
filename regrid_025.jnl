@@ -3,7 +3,7 @@ set memory/size=400
 use ocean_grid_025.nc
 use mean_salinity_of_0_and_10m.nc
 ! define att/d=2/type=string (time).modulo = "true"
-set axis/d=2/modulo time
+set axis/d=2/modulo/calendar=noleap time
 let salt = so[g=geolon_t[d=1]]
 define att/type=string salt.long_name = "Mean sea_water_salinity of 0m and 10m depth"
 define att/type=string salt.standard_name = "sea_water_salinity"

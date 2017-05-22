@@ -1,0 +1,11 @@
+CANCEL MODE upcase_output
+set memory/size=400
+use ocean_grid_01.nc
+use mean_salinity_of_0_and_10m.nc
+! Need to use time1, as ocean_grid_01.nc has a time axis
+set axis/modulo time1
+let salt = so[g=geolon_t[d=1]]
+define att/type=string salt.long_name = "Mean sea_water_salinity of 0m and 10m depth"
+define att/type=string salt.standard_name = "sea_water_salinity"
+set attribute/output ..comment
+save /file=salt_sfc_restore_jra55_01.nc salt

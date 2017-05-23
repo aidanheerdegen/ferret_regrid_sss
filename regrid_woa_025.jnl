@@ -1,0 +1,11 @@
+CANCEL MODE upcase_output
+set memory/size=800
+use ocean_grid_025.nc
+use woa13_decav_sss_clim_04v2.nc
+set axis/d=2/modulo time
+let s_fill = s_an[X=@FAV:15]
+let salt = s_fill[g=geolon_t[d=1]]
+define att/type=string salt.long_name = "Mean sea_water_salinity of 0m and 10m depth"
+define att/type=string salt.standard_name = "sea_water_salinity"
+set attribute/output ..comment
+save /file=salt_sfc_restore_woa_025.nc/clobber=true salt
